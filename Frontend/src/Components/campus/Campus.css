@@ -1,0 +1,92 @@
+.campus {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 120px;
+  background-color: #014b87; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title h5 {
+  font-size: 1.2rem;
+  color: gold;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.title h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.title p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+}
+
+.content > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(0, 58, 105, .6);
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.heading {
+  flex: 1;
+  text-align: left;
+}
+
+.heading h2 {
+  font-size: 1.8rem;
+  color: goldenrod;
+  margin-bottom: 10px;
+}
+
+.heading h3 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.players img{
+  border-radius: 100%;
+}
+
+/* Image container */
+.content img {
+  max-width: 150px;
+  /* border-radius: 10px; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content > div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content img {
+    max-width: 100%;
+  }
+}

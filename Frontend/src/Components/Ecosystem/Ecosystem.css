@@ -1,0 +1,94 @@
+.europe {
+  position: relative; 
+  background-image: url('../../assets/buildingbg.jpg');
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1; 
+  padding: 80px 100px;
+  overflow: hidden;
+}
+
+.europe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 8, 88, 0.6); 
+  z-index: -1; 
+}
+
+  
+  .europe > div:first-child {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .europe p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: goldenrod;
+    margin-bottom: 0.5rem;
+    padding-bottom: 20px;
+  }
+  
+  .europe h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 0 100px;
+    color: white;
+  }
+  
+  .europe > div:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  .europe > div:nth-child(2) > div {
+    background-color:  rgba(0, 58, 105, .6);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 1rem);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    align-items: center;
+    text-align: center;
+    max-width: 350px;
+  }
+  
+  .europe img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .europe h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .europe > div:nth-child(2) {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .europe > div:nth-child(2) > div {
+      flex: 1 1 100%;
+    }
+  }
+  
