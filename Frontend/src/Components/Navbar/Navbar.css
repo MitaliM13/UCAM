@@ -1,50 +1,123 @@
-nav{
-    /* background-color: #333; */
+.navbar {
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     padding: 20px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 10;
-}
-
-.logo{
     color: white;
+  }
+  
+  .logo {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.logo h1{
-    font-size: 32px;
-}
-.logo p{
+    align-items: flex-start; 
+    text-align: left;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .logo p {
     font-size: 12px;
-}
-
-
-.navlinks ul{
-    cursor: pointer;
+    margin: 0;
+  }
+  
+  .navlinks {
+    flex: 1; 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+  }
+  
+  .navlinks ul {
+  opacity: 1;
+    background-color: rgba(0, 58, 105, 0.6);
+    padding: 10px 20px;
+    display: flex;
     list-style: none;
-    gap: 100px;
-    color: white;
-    /* padding: 20px; */
-    padding: 16px 32px;
-    background-color: #1c5179;
+    gap: 40px;
+    margin: 0;
     border-radius: 50px;
-    backdrop-filter: blur(10px);
-}
-
-.btn button{
-    padding: 12px 20px;
+  }
+  
+  .navlinks ul li {
+    cursor: pointer;
+  }
+  
+  .navbar-button {
+    display: flex;
+    justify-content: flex-end; 
+  }
+  
+  .navbar-button button {
+    background-color: rgba(0, 58, 105, .6);
     border-radius: 50px;
-    background-color: #1c5179;
-    outline: 0;
+    padding: 10px 20px;
+    outline: none;
     border: 0;
+    text-decoration: none;
     color: white;
-}
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-button button:hover {
+    background-color: white;
+    color: #1c5179;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 15;
+  }
+  
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .navlinks {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(28, 81, 121, 0.9);
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+  
+    .navlinks.open {
+      display: flex;
+    }
+  
+    .navlinks ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .navbar-button {
+      display: none; 
+    }
+  
+    .logo {
+      align-items: center; 
+    }
+  }
+  

@@ -2,4 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
+:root {
+    --primary-dark: rgb(0, 34, 61);
+    --primary-light: rgb(0, 58, 105);
+    --primary-transparent: rgba(0, 58, 105, 0.6);
+    --secondary-dark: rgb(1, 75, 135);
+    --secondary-light: rgb(163, 214, 255);
+    --background-light: rgb(237, 247, 255);
+    --accent-yellow: rgb(255, 193, 36);
+}
+ 

@@ -10,7 +10,8 @@ import Highlight from './Components/Highlights/Highlight'
 import Link from './Components/link/Link'
 import Faculty from './Components/Faculty/Faculty'
 import Curriculum from './Components/Curriculum/Curriculum'
-import Form from './Components/Form/Form'
+// import Form from './Components/Form/Form'
+import Apiform from './Components/ApiForm/Apiform'
 function App() {
 
   return (
@@ -26,7 +27,8 @@ function App() {
       <Link/>
       <Faculty/>
       <Curriculum/>
-      <Form/>
+      {/* <Form/> */}
+      <Apiform/>
     </>
   )
 }

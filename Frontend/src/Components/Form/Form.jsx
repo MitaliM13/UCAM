@@ -1,4 +1,5 @@
 import '../Form/Form.css';
+import '../../App.css';
 
 function Form() {
   return (
@@ -42,9 +43,8 @@ function Form() {
           <label htmlFor="Lead_Source" className="form-label">Program Name:</label>
           <select id="Lead_Source" name="Lead Source" className="form-select">
             <option value="-None-">-None-</option>
-            <option value="Advertisement">Advertisement</option>
-            <option value="Cold Call">Cold Call</option>
-            {/* Add more options as needed */}
+            <option value="Advertisement">Master</option>
+            <option value="Cold Call">Preparatory Program</option>
           </select>
         </div>
         <div className="form-row">

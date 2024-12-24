@@ -78,9 +78,13 @@ function Curriculum() {
           <div
             key={index}
             className={`accordion ${activeAccordion === index ? 'active' : ''}`}
-            onClick={() => toggleAccordion(index)}
           >
-            <h5>{item.title}</h5>
+            <div className="accordion-header" onClick={() => toggleAccordion(index)}>
+              <h5>{item.title}</h5>
+              <button className="toggle-button">
+                {activeAccordion === index ? 'x' : '+'}
+              </button>
+            </div>
             {activeAccordion === index && (
               <div className="accordion-content">
                 <p>{item.content}</p>

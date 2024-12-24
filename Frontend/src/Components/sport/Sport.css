@@ -21,3 +21,41 @@
     margin: 0;
     padding: 20px 210px;
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sport {
+        padding: 15px;
+        height: 80vh; /* Adjusted height for medium screens */
+    }
+
+    .sport h3 {
+        font-size: 20px; /* Adjusted font size */
+        padding: 15px 150px; /* Reduced padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .sport {
+        height: 70vh; /* Adjusted height for smaller screens */
+        flex-direction: column; /* Ensure content stacks vertically */
+        padding: 10px;
+    }
+
+    .sport h3 {
+        font-size: 18px; /* Reduced font size */
+        padding: 10px 50px; /* Further reduced padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .sport {
+        height: auto; /* Let height adjust naturally for smaller screens */
+        padding: 10px;
+    }
+
+    .sport h3 {
+        font-size: 16px; /* Further reduced font size */
+        padding: 10px; /* Minimal padding for very small screens */
+    }
+}

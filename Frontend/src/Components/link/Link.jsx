@@ -1,6 +1,7 @@
 import '../link/Link.css'
 import thumbnail from '../../assets/thumbnail.png'
 import { useState } from 'react'
+import {motion} from 'framer-motion'
 function Link() {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -10,9 +11,13 @@ function Link() {
 
    return (
     <div className="dual-phase">
-      <h5>
+      <motion.h5 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
         “This dual-phase programme offers a comprehensive pathway for academic growth and professional success in the sports industry.”
-      </h5>
+      </motion.h5>
 
       {!isPlaying ? (
         <div className="video-placeholder" onClick={handlePlay}>

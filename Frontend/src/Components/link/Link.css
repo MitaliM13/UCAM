@@ -10,12 +10,13 @@
     /* border-radius: 10px; */
     /* max-width: 800px; */
     width: 100%;
-  }
+  } 
   
   .dual-phase h5 {
     font-size: 2rem;
     font-weight: 400;
-    color: rgb(99, 141, 233);
+    color: --secondary-light;
+    color: var(--secondary-light);
     margin-bottom: 1.5rem;
     padding: 0 50px;
     text-align: start;

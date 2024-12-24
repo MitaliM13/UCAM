@@ -11,7 +11,7 @@
   
   .faculty-heading {
     font-size: 1.2rem;
-    color: goldenrod;
+    color: #ffc400;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -19,7 +19,8 @@
   
   .faculty-title {
     font-size: 2rem;
-    color: #2b2481;
+    /* color: #2b2481; */
+  color: rgb(0, 34, 61); 
     margin-bottom: 2rem;
     font-weight: 500;
   }
@@ -34,7 +35,9 @@
   .faculty-card {
     display: flex;
     flex-direction: column;
-    background-color:#2b2481;
+    /* background-color:#2b248 */
+  background-color: var(--primary-light); 
+
     border-radius: 10px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     padding: 1.5rem;

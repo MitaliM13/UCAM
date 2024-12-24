@@ -1,106 +1,93 @@
+/* Curriculum Section */
 .curriculum-section {
-  padding: 2rem;
-  background-color: #f9f9f9;
-  font-family: 'Arial', sans-serif;
-  color: #333;
+  padding: 60px 50px;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(var(--primary-light), var(--primary-dark));
 }
 
 .curriculum-heading {
-  font-size: 2rem;
+  font-size: 14px;
   font-weight: bold;
-  color: #0073e6;
-  margin-bottom: 1rem;
   text-align: center;
+  margin-bottom: 10px;
+  color: var(--accent-yellow);
 }
 
 .curriculum-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 24px;
   text-align: center;
+  margin-bottom: 15px;
+  color: var(--background-light);
 }
 
 .curriculum-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
   text-align: center;
+  margin-bottom: 25px;
+  color: var(--background-light);
+  font-size: 14px;
 }
 
 .accordion-section {
-  margin-top: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+/* Accordion */
 .accordion {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  margin-bottom: 10px;
   overflow: hidden;
+  /* background-color: var(--primary-dark); */
 }
 
-.accordion h5 {
-  font-size: 1.2rem;
-  padding: 1rem;
-  margin: 0;
-  background-color: #0073e6;
-  color: white;
+.accordion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  /* background-color: #f4f4f4; */
+  /* border-bottom: 1px solid #ddd; */
 }
 
-.accordion:hover {
-  background-color: #e6f4ff;
+.accordion-header h5 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--accent-yellow);
 }
 
+.accordion-header:hover {
+  background-color: var(--primary-transparent);
+}
+
+.toggle-button {
+  background-color: var(--primary-dark);
+  color: var(--accent-yellow);
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: var(--primary-light);
+}
+
+/* Accordion Content */
 .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  background-color: #f5f5f5;
-  padding: 0 1rem;
-}
-
-.accordion.active .accordion-content {
-  max-height: 500px; 
-  padding: 1rem;
+  padding: 15px 20px;
+  background-color: var(--primary-transparent);
+  color: var(--background-light);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .accordion-content p {
-  font-size: 1rem;
-  line-height: 1.6;
   margin: 0;
-  white-space: pre-wrap; 
+  white-space: pre-wrap; /* Preserves spacing in the content */
 }
-
-.error {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
-}
-
-
-@media (max-width: 768px) {
-  .curriculum-section {
-    padding: 1rem;
-  }
-
-  .curriculum-heading {
-    font-size: 1.8rem;
-  }
-
-  .curriculum-title {
-    font-size: 1.2rem;
-  }
-
-  .accordion h5 {
-    font-size: 1rem;
-  }
-
-  .accordion-content p {
-    font-size: 0.9rem;
-  }
-}
-
