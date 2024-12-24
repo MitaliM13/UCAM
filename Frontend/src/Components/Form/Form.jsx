@@ -1,210 +1,57 @@
-import { useState } from 'react';
 import '../Form/Form.css';
 
 function Form() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    program: '',
-    course: '',
-    status: '',
-    consent: false,
-  });
-
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  const validate = () => {
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required.';
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required.';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email format is invalid.';
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required.';
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = 'Phone number must be 10 digits.';
-    }
-
-    if (!formData.program) {
-      newErrors.program = 'Please select a program.';
-    }
-
-    if (!formData.course) {
-      newErrors.course = 'Please select a course.';
-    }
-
-    if (!formData.status) {
-      newErrors.status = 'Please select your status.';
-    }
-
-    if (!formData.consent) {
-      newErrors.consent = 'You must agree to the consent checkbox.';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log('Form submitted successfully', formData);
-      alert('Form submitted successfully!');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        program: '',
-        course: '',
-        status: '',
-        consent: false,
-      });
-      setErrors({});
-    }
-  };
-
   return (
-    <div className="form-container">
-      <h1 className="form-heading">
-        Are you ready to take the next step toward your future career?
-      </h1>
-      <h4 className="form-subheading">
-        At UCAM Mumbai Campus, we don’t just educate – we shape the leaders of tomorrow.
-      </h4>
-
-      <div className="form-wrapper">
-        <form className="form" onSubmit={handleSubmit}>
-          <label>
-            First Name:
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              placeholder="Enter your first name"
-            />
-            {errors.firstName && <span className="error">{errors.firstName}</span>}
+    <div className='form'>
+      <div className="form-container">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <form
+        id="registration-form"
+        action="https://crm.zoho.in/crm/WebToContactForm"
+        name="WebToContacts837049000000341953"
+        method="POST"
+        onSubmit="javascript:document.charset='UTF-8'; return checkMandatory837049000000341953()"
+        acceptCharset="UTF-8"
+      >
+        <h1 className="form-title">Registration Form</h1>
+        <div className="form-row">
+          <label htmlFor="First_Name" className="form-label">
+            First Name:<span className="required">*</span>
           </label>
-
-          <label>
-            Last Name:
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              placeholder="Enter your last name"
-            />
-            {errors.lastName && <span className="error">{errors.lastName}</span>}
+          <input type="text" id="First_Name" name="First Name" className="form-input" maxLength="40" required />
+        </div>
+        <div className="form-row">
+          <label htmlFor="Last_Name" className="form-label">
+            Last Name:<span className="required">*</span>
           </label>
-
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email address"
-            />
-            {errors.email && <span className="error">{errors.email}</span>}
+          <input type="text" id="Last_Name" name="Last Name" className="form-input" maxLength="80" required />
+        </div>
+        <div className="form-row">
+          <label htmlFor="Email" className="form-label">
+            Email:<span className="required">*</span>
           </label>
-
-          <label>
-            Phone Number:
-            <input
-              type="number"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-            />
-            {errors.phone && <span className="error">{errors.phone}</span>}
+          <input type="email" id="Email" name="Email" className="form-input" maxLength="100" required />
+        </div>
+        <div className="form-row">
+          <label htmlFor="Phone" className="form-label">
+            Phone:<span className="required">*</span>
           </label>
-
-          <label>
-            Program Name:
-            <select
-              name="program"
-              value={formData.program}
-              onChange={handleChange}
-            >
-              <option value="">Select Program</option>
-              <option value="Master">Master</option>
-              <option value="Preparatory Program">Preparatory Program</option>
-            </select>
-            {errors.program && <span className="error">{errors.program}</span>}
-          </label>
-
-          <label>
-            Course Name:
-            <select
-              name="course"
-              value={formData.course}
-              onChange={handleChange}
-            >
-              <option value="">Select Course</option>
-              <option value="Course A">Course A</option>
-              <option value="Course B">Course B</option>
-            </select>
-            {errors.course && <span className="error">{errors.course}</span>}
-          </label>
-
-          <label>
-            Status:
-            <select
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-            >
-              <option value="">Select Status</option>
-              <option value="Enquiry">Enquiry</option>
-              <option value="Application">Application</option>
-            </select>
-            {errors.status && <span className="error">{errors.status}</span>}
-          </label>
-
-          <div className="consent">
-            <input
-              type="checkbox"
-              id="consent-checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-            />
-            <label htmlFor="consent-checkbox">
-              I authorize UCAM Mumbai and its representatives to contact me with updates and notifications via Email, SMS, WhatsApp, or call. This will override DND/NDNC and privacy policy.
-            </label>
-            {errors.consent && <span className="error">{errors.consent}</span>}
-          </div>
-
-          <button className="form-button" type="submit">
-            Save
-          </button>
-        </form>
-      </div>
+          <input type="text" id="Phone" name="Phone" className="form-input" maxLength="50" required />
+        </div>
+        <div className="form-row">
+          <label htmlFor="Lead_Source" className="form-label">Program Name:</label>
+          <select id="Lead_Source" name="Lead Source" className="form-select">
+            <option value="-None-">-None-</option>
+            <option value="Advertisement">Advertisement</option>
+            <option value="Cold Call">Cold Call</option>
+            {/* Add more options as needed */}
+          </select>
+        </div>
+        <div className="form-row">
+          <input type="submit" className="form-button" value="Submit" />
+        </div>
+      </form>
+    </div>
     </div>
   );
 }

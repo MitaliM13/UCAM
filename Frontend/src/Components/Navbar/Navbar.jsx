@@ -1,5 +1,6 @@
 import '../Navbar/Navbar.css'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-scroll'
 import {motion} from 'framer-motion'
 function Navbar() {
 
@@ -31,13 +32,13 @@ function Navbar() {
         </div>
         <div className='navlinks'> 
             <ul>
-                <li>Campus of Sports</li>
-                <li>European Ecosystem</li>
-                <li>Program</li>
+                <li><Link to='campus' smooth={true} offset={0} duration={500}>Campus of Sports</Link></li>
+                <li><Link to='europe' smooth={true} offset={0} duration={500}>European Ecosystem</Link></li>
+                <li><Link to='highlight' smooth={true} offset={0} duration={500}>Program</Link></li>
             </ul>
         </div>
         <div className='btn'>
-            <button>Apply Now</button>
+            <button><Link to='form' smooth={true} offset={0} duration={500}>Apply Now</Link></button>
         </div>
     </motion.nav>
   )
