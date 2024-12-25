@@ -163,7 +163,6 @@ function Highlight() {
         <p>CAREER OPPORTUNITY</p>
         <h2>Shape the future of sports with opportunities that turn passion into profession</h2>
 
-        {/* Add motion to the <ul> for stagger effect */}
         <motion.ul
           initial="hidden"
           animate="visible"
@@ -172,7 +171,7 @@ function Highlight() {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.2, // Stagger delay for each <li>
+                staggerChildren: 0.2, 
               }
             }
           }}

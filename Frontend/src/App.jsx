@@ -11,6 +11,7 @@ import Link from './Components/link/Link'
 import Faculty from './Components/Faculty/Faculty'
 import Curriculum from './Components/Curriculum/Curriculum'
 import Form from './Components/Form/Form'
+// import Zoho from './Components/FormZoho/Zoho'
 // import Apiform from './Components/ApiForm/Apiform'
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       <Curriculum/>
       <Form/>
       {/* <Apiform/> */}
+      {/* <Zoho/> */}
     </>
   )
 }

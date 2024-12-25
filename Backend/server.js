@@ -1,55 +1,54 @@
-require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const axios = require('axios');
+require('dotenv').config(); 
+const cors = require('cors');
 
 
 const app = express();
-const port = 5000;
-
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
-app.post('/submit-form', async (req, res) => {
-  const { firstName, lastName, email, phone, programName } = req.body;
 
-  if (!firstName || !lastName || !email || !phone) {
-    return res.status(400).json({ message: 'Please provide all required fields.' });
+const CLIENT_ID = process.env.ZOHO_CLIENT_ID;
+const CLIENT_SECRET = process.env.ZOHO_CLIENT_SECRET;
+const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
+
+app.get('/authorize', (req, res) => {
+  const authUrl = `https://accounts.zoho.com/oauth/v2/auth?response_type=code&client_id=${CLIENT_ID}&scope=ZohoCRM.modules.ALL&redirect_uri=${REDIRECT_URI}&access_type=offline`;
+  res.redirect(authUrl);
+});
+
+app.get('/oauth2callback', async (req, res) => {
+  const { code } = req.query;
+
+  if (!code) {
+    return res.status(400).send('Authorization code not found');
   }
 
   try {
-    const leadData = {
-      data: [
-        {
-          First_Name: firstName,
-          Last_Name: lastName,
-          Email: email,
-          Phone: phone,
-          Lead_Source: programName || 'None',
-        },
-      ],
-    };
-
-    const response = await axios.post(process.env.ZOHO_API_URL, leadData, {
-      headers: {
-        'Authorization': `Zoho-oauthtoken ${process.env.ZOHO_ACCESS_TOKEN}`,
+    const response = await axios.post('https://accounts.zoho.com/oauth/v2/token', null, {
+      params: {
+        code,
+        redirect_uri: REDIRECT_URI,
+        client_id: CLIENT_ID,
+        client_secret: CLIENT_SECRET,
+        grant_type: 'authorization_code',
       },
     });
 
-    if (response.status === 200) {
-      res.json({ message: 'Form submitted successfully', data: response.data });
-    } else {
-      res.status(500).json({ message: 'Error submitting form to Zoho CRM.' });
-    }
+    const { access_token, refresh_token } = response.data;
+
+    console.log('Access Token:', access_token);
+    console.log('Refresh Token:', refresh_token);
+
+    res.send('Authorization successful! Tokens are logged on the server.');
   } catch (error) {
-    console.error('Error submitting form:', error.response ? error.response.data : error.message);
-    res.status(500).json({ message: 'Error submitting form to Zoho CRM.' });
+    console.error('Error exchanging authorization code:', error.response.data);
+    res.status(500).send('Failed to exchange authorization code');
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+app.listen(3000, () => {
+  console.log('Backend server running on http://localhost:3000');
 });

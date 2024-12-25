@@ -20,12 +20,13 @@ function Org() {
           <li><img src={spanish} alt="Spanish" /></li>
           <li><img src={wes} alt="WES" /></li>
           <li><img src={fcb} alt="FCB" /></li>
-          {/* Duplicate content for seamless scrolling */}
+
           <li><img src={qs} alt="QS" /></li>
           <li><img src={ucam} alt="UCAM" /></li>
           <li><img src={spanish} alt="Spanish" /></li>
           <li><img src={wes} alt="WES" /></li>
           <li><img src={fcb} alt="FCB" /></li>
+
           <li><img src={qs} alt="QS" /></li>
           <li><img src={ucam} alt="UCAM" /></li>
           <li><img src={spanish} alt="Spanish" /></li>
